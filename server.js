@@ -8,7 +8,9 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
-const indexRoutes = require('./routes/index');
+
+const indexRouter = require('./routes/index');
+const projectsRouter = require('./routes/projects');
 
 
 // create the Express app
@@ -44,13 +46,14 @@ app.use(passport.session());
 
 // Add this middleware BELOW passport middleware
 app.use(function (req, res, next) {
-  res.locals.user = req.user; // assinging a property to res.locals, makes that said property (user) availiable in every
+  res.locals.user = req.user; // assigning a property to res.locals, makes that said property (user) availiable in every
   // single ejs view
   next();
 });
 
 // mount all routes with appropriate base paths
-app.use('/', indexRoutes);
+app.use('/', indexRouter);
+app.use('/projects', projectsRouter);
 
 
 // invalid request, send 404 page
