@@ -23,6 +23,7 @@ passport.use(new GoogleStrategy({
         avatar: profile.photos[0].value
       });
       return cb(null, newUser)
+      
     }catch(err){
       return cb(err)
     }
