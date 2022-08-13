@@ -1,5 +1,6 @@
 // load the env consts
 require('dotenv').config();
+const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -12,24 +13,22 @@ const methodOverride = require('method-override');
 const indexRouter = require('./routes/index');
 const tripsRouter = require('./routes/trips');
 
-
-// create the Express app
-const app = express();
-
 // connect to the MongoDB with mongoose
 require('./config/database');
 // configure Passport
 require('./config/passport');
 
 
+// create the Express app
+const app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(methodOverride('_method'));
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
+app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -39,6 +38,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -60,5 +60,6 @@ app.use('/trips', tripsRouter);
 app.use(function(req, res) {
   res.status(404).send('Cant find that!');
 });
+
 
 module.exports = app;
