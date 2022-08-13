@@ -3,5 +3,5 @@ module.exports = {
 }
 
 function index(req, res){
-    res.render("projects/index.ejs");
+    res.render("trips/index.ejs");
 }
