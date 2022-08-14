@@ -11,6 +11,7 @@ const passport = require('passport');
 const methodOverride = require('method-override');
 
 const indexRouter = require('./routes/index');
+const travelsRouter = require('./routes/travels');
 const tripsRouter = require('./routes/trips');
 
 // connect to the MongoDB with mongoose
@@ -53,7 +54,8 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
-app.use('/trips', tripsRouter);
+app.use('/travels', travelsRouter);
+app.use('/', tripsRouter); // <- nested inside of profile, m
 
 
 // invalid request, send 404 page

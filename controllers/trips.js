@@ -1,7 +1,9 @@
+const Profile = require("../models/profile");
+
 module.exports = {
-    index
+    create
 }
 
-function index(req, res){
-    res.render("trips/show_trips.ejs");
+function create(req, res){
+    console.log(req.user, "what is this")
 }

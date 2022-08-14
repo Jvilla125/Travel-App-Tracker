@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+<body>
+    <h1>Test</h1>
+    <h1> Please create a new trip</h1>
+    <form id="new-trip" action="/travels" method="POST">
+        <label>Continent:</label>
+        <select name="continents">
+            <option value="Africa">Africa</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="Australia">Australia</option>
+            <option value="North America">North America</option>
+            <option value="South America">South America</option>
+            <option value="Europe">Europe</option>
+            <option value="Asia">Asia</option>
+        </select>
+        <label>Country:</label>
+        <input type="text" name="Country">
+        <label>City</label>
+        <input type="text" name="City">
+        <label>Description</label>
+        <input type="text" name="Description">
+
+        <input type="submit" value="Add trip">
+    </form>
+</main>
+</body>
+</html>
