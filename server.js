@@ -9,10 +9,25 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
+// Step 5 - set up multer for storing uploaded files
+
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+	destination: (req, file, cb) => {
+		cb(null, 'uploads')
+	},
+	filename: (req, file, cb) => {
+		cb(null, file.fieldname + '-' + Date.now())
+	}
+});
+
+var upload = multer({ storage: storage });
+
 
 const indexRouter = require('./routes/index');
 const travelsRouter = require('./routes/travels');
-const tripsRouter = require('./routes/trips');
+const journalsRouter = require('./routes/journals');
 
 // connect to the MongoDB with mongoose
 require('./config/database');
@@ -55,7 +70,7 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
 app.use('/travels', travelsRouter);
-app.use('/', tripsRouter); // <- nested inside of profile, m
+app.use('/', journalsRouter); // <- nested inside of profile, m
 
 
 // invalid request, send 404 page

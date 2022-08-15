@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const tripsController = require('../controllers/trips')
+const journalsController = require('../controllers/journals')
 const isLoggedIn = require('../config/auth');
 
-router.post('/travels/:id/trips', tripsController.create);
+router.post('/travels/:id/journals', journalsController.create);
 
 module.exports = router;

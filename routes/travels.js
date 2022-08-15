@@ -6,5 +6,6 @@ const isLoggedIn = require('../config/auth');
 router.get('/', travelsController.index);
 router.get('/new', isLoggedIn, travelsController.new);
 router.get('/:id', travelsController.show);
+router.post('/', isLoggedIn, travelsController.create);
 
 module.exports = router;

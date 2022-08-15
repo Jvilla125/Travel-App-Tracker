@@ -2,6 +2,23 @@
 <body>
     
     <h1>helloindex</h1>
+    <thead>
+        <tr>
+          <th>Continent</th>
+          <th>Country</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% travels.forEach(function(t) { %>
+          <tr>
+            <td><%= t.continent%></td>
+            <td><%= t.country %></td>
+            <td><a href="/travels/<%= t._id %>">DETAILS</a></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
 </main>
 </body>
 </html>
