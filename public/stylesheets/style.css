@@ -1,28 +1,17 @@
-.brand-logo {
-  margin-left: 15px;
-}
+
 /* body{
   background-image: url(https://i.imgur.com/gyYJB84.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 } */
-
-.card .card-content .card-title {
-  margin-bottom: 10px;
+body{
+  background-color: lightgray;
 }
+
 /* 
 #search-row form {
   padding-top: 20px;
 } */
-
-.student-name {
-  position: relative;
-  top: -5px;
-}
-
-.collection-item form {
-  margin-top: -5px;
-}
 
 nav > a {
   margin: 20px;
@@ -31,22 +20,17 @@ nav > a {
   border-radius: 5px;
 }
 
-nav > a:hover {
-  color: white;
-  background-color: #424748;
-}
-
-nav > a.active {
-  color: white;
-}
-
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 34px;
+  background-color: darkgray;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
-
+#index-login{
+  width: 150px;
+}
 .login img {
   height: 30px;
 }
@@ -67,5 +51,13 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 20px 0 30px;
+}
+
+.index-page{
+  display: grid;
+  justify-content: center;
+  background-color: lightblue;
+  border-radius: 10px;
+  width: 500px;
+  margin: 20px;
 }

@@ -11,24 +11,9 @@ const passport = require('passport');
 const methodOverride = require('method-override');
 // Step 5 - set up multer for storing uploaded files
 
-const multer = require('multer');
-
-const storage = multer.diskStorage({
-	destination: (req, file, cb) => {
-		cb(null, 'uploads')
-	},
-	filename: (req, file, cb) => {
-		cb(null, file.fieldname + '-' + Date.now())
-	}
-});
-
-var upload = multer({ storage: storage });
-
-
 const indexRouter = require('./routes/index');
 const travelsRouter = require('./routes/travels');
 const journalsRouter = require('./routes/journals');
-
 // connect to the MongoDB with mongoose
 require('./config/database');
 // configure Passport
@@ -42,6 +27,7 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 
 app.use(logger('dev'));
 app.use(methodOverride('_method'));

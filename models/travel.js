@@ -5,17 +5,18 @@ const journalSchema = new mongoose.Schema({
     text: String,
     }
 );
-
+const imageSchema = new mongoose.Schema({
+    img: [{
+        data: Buffer,
+        contentType: String
+    }],
+})
 const travelSchema = new mongoose.Schema({
     continent: String,
     country: String,
     city: String,
     description: String,
-    img:
-    {
-        data: Buffer,
-        contentType: String
-    },
+    images: [imageSchema],
     journals: [journalSchema],
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
 });

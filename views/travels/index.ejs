@@ -1,8 +1,9 @@
 <%- include('../partials/header') %>
 <body>
+  <center><div class="index-page">
     <% if (user) { %>
-        <h1><center>Welcome to the home page</center></h1>
-        <h2><center>Please click one of the following links to view your trip </center></h2>
+        <h1>Welcome to the home page</h1>
+        <h2>Please click one of the following links to view your trip </h2>
         <p>
         <% travels.forEach(t => { %>
             <center>
@@ -17,11 +18,11 @@
         <% }) %>
           <center><a href="/travels/new">Add a trip</a></center></p>
           <% } else { %>
-            <h1><center>Welcome to the home page</center></h1>
-            <h2><center>Please login to continue</center></h2>
-            <p><a href="/auth/google" class="login">Click here to log in</a></p> 
+            <h1>Welcome to the home page</h1>
+            <h2>Please login to continue</h2>
+            <p><a href="/auth/google" class="login" id="index-login" >Click here to log in</a></p> 
           <% } %>
-    
+      </div></center>
 </main>
 </body>
 </html>
