@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 const journalSchema = new mongoose.Schema({
     itemNo: {type: Number, min: 0},
     text: String,
-    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
-    },
-    {
-        timestamps: true
     }
 );
 
@@ -20,7 +16,8 @@ const travelSchema = new mongoose.Schema({
         data: Buffer,
         contentType: String
     },
-    journals: [journalSchema]
+    journals: [journalSchema],
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
 });
 
 module.exports = mongoose.model("Travel", travelSchema);

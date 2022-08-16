@@ -1,7 +1,30 @@
 <%- include('../partials/header') %>
 <body>
+    <% if (user) { %>
+        <h1><center>Welcome to the home page</center></h1>
+        <h2><center>Please click one of the following links to view your trip </center></h2>
+        <p>
+        <% travels.forEach(t => { %>
+            <center>
+            --> <%= t.continent %> 
+            <a href="/travels/<%= t._id %>">View Trip</a>
+            <form method="POST" action="/travels/<%=t.id%>?_method=DELETE">
+                <input type="submit" value="Delete-Trip"><br><br>
+                </form>
+            </center>
+        <% }) %>
+          <center><a href="/travels/new">Add a trip</a></center></p>
+          <% } else { %>
+            <h1><center>Welcome to the home page</center></h1>
+            <h2><center>Please login to continue</center></h2>
+            <p><a href="/auth/google" class="login">Click here to log in</a></p> 
+          <% } %>
     
-    <h1>helloindex</h1>
+</main>
+</body>
+</html>
+
+<!-- <% if (user) { %>
     <thead>
         <tr>
           <th>Continent</th>
@@ -19,6 +42,4 @@
           <% }); %>
         </tbody>
       </table>
-</main>
-</body>
-</html>
+      <% } %> -->

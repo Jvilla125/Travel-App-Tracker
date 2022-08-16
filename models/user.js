@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     googleId: {
         type: String,
         required: true
-    }
+        }
     }, {
     timestamps: true
 });

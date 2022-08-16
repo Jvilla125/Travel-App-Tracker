@@ -7,5 +7,6 @@ router.get('/', travelsController.index);
 router.get('/new', isLoggedIn, travelsController.new);
 router.get('/:id', travelsController.show);
 router.post('/', isLoggedIn, travelsController.create);
+router.delete('/:id', isLoggedIn, travelsController.delete);
 
 module.exports = router;

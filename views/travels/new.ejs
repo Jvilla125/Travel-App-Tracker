@@ -4,7 +4,7 @@
     <h1> Please create a new trip</h1>
     <form id="new-trip" action="/travels" method="POST">
         <label>Continent:</label>
-        <select name="continents">
+        <select name="continent">
             <option value="Africa">Africa</option>
             <option value="Antarctica">Antarctica</option>
             <option value="Australia">Australia</option>
@@ -14,13 +14,13 @@
             <option value="Asia">Asia</option>
         </select><br><br>
         <label>Country: </label>
-        <input type="text" name="Country"><br><br>
+        <input type="text" name="country"><br><br>
         <label>City: </label>
-        <input type="text" name="City"><br><br>
+        <input type="text" name="city"><br><br>
         <label>Description: </label>
-        <input type="text" name="Description"><br><br>
+        <input type="text" name="description"><br><br>
         <label for="image">Upload image(s): </label>
-        <input type="file" id="image" name="image"><br><br>
+        <input type="file" id="img" name="img"><br><br>
 
         <input type="submit" value="Add trip">
     </form>
