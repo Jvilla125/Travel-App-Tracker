@@ -14,6 +14,7 @@ const methodOverride = require('method-override');
 const indexRouter = require('./routes/index');
 const travelsRouter = require('./routes/travels');
 const journalsRouter = require('./routes/journals');
+const budgetsRouter = require('./routes/budgets');
 // connect to the MongoDB with mongoose
 require('./config/database');
 // configure Passport
@@ -57,7 +58,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/travels', travelsRouter);
 app.use('/', journalsRouter); // <- nested inside of profile, m
-
+app.use('/', budgetsRouter);
 
 // invalid request, send 404 page
 app.use(function(req, res) {

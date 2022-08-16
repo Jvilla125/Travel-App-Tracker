@@ -4,7 +4,8 @@ const User = require("../models/user");
 module.exports = {
     create,
     delete: deleteJournal,
-    update: updateJournal
+    update: updateJournal,
+    edit: editJournal
 }
 
 function create(req, res){
@@ -32,20 +33,41 @@ function deleteJournal(req, res){
     });
 }
 
-// function editJournal(req, res){
-//     Travel.findById(req.params.id, function(err, allTravels){
-
-//     })
-// }
-
-function updateJournal(req, res){
-    Travel.findOne({'journals._id': req.params.id}, function(err, travel){
-        const journalSubdoc = travel.journals.id(req.params.id);
-        if(!journalSubdoc.userId.equals(req.user._id)) return res.redirect(`/travels/${travel._id}`);
-        journalSubdoc.text = req.body.text;
-        travel.save(function(err){
-            res.redirect(`/travels/${travel._id}`)
-        });
-    });
+function editJournal(req, res){
+    Travel.findOne({'journals._id': req.params.id}, function(err, allTravels){
+        const journalDoc = allTravels.journals.id(req.params.id);
+        console.log(journalDoc, "<-- journal Doc")
+        res.render(`journals/edit`,{
+        travel: allTravels,
+        journal: journalDoc
+        })
+    })
 }
 
+// function updateJournal(req, res){
+//     Travel.findOne({'journals._id': req.params.id}, function(err, travel){
+//         const journalSubdoc = travel.journals.id(req.params.id);
+//         if(!journalSubdoc.userId.equals(req.user._id)) return res.redirect(`/travels/${travel._id}`);
+//         journalSubdoc.text = req.body.text;
+//         journalSubdoc.itemNo = req.body.itemNo;
+//         journalSubdoc.save();
+//         travel.save(function(err){
+//             res.redirect(`/travels/${travel._id}`)
+//         });
+//     });
+// }
+
+async function updateJournal(req, res){
+    try{
+        const allTravels = await Travel.findOne({'journals._id': req.params.id});
+        console.log(req.params.id, "<- req.params.id")
+        const journalSubdoc = allTravels.journals.id(req.params.id);
+        console.log(req.params.id, "<- journal req.params.id")
+        journalSubdoc.text = req.body.text;
+        journalSubdoc.itemNo = req.body.itemNo;
+        journalSubdoc.save();
+        res.redirect(`${allTravels._id}`);
+    } catch(err){
+        res.send(err);
+    }
+}

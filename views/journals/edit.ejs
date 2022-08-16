@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+<body>
+
+    <center><h1>Welcome to the edit page</h1></center>
+     
+    <h2>Add a journal entry</h2>
+    <form id="update-journal-entry" method="POST" action="/travels/<%= travel._id %>/journals">
+    <label>Item No.
+          <input type="text" name="itemNo">
+    </label><br><br>
+    <label> Text
+          <input type="text" name="text">
+    </label><br><br>
+    <input type="submit" value="update-journal">
+    </form>
+
+</main>
+</body>
+</html>

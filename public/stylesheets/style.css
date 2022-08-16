@@ -61,3 +61,8 @@ nav {
   width: 500px;
   margin: 20px;
 }
+#budget-table{
+  font-size: 20px; 
+  padding: 10px;
+  text-align: center
+}

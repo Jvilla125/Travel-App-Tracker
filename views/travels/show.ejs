@@ -20,6 +20,7 @@
             <% } else { %>
              <h3>No Images uploaded yet</h3>
              <% } %>
+
             <h2>Journals:</h2>
             <% if (travel.journals.length) { %>
                   <% travel.journals.forEach(function(journal) {%>
@@ -28,6 +29,7 @@
                    <form method="POST" action="/travels/<%=travel.id %>/journals/<%=journal.id%>?_method=DELETE">
                         <input type="submit" value="Delete-Journal">
                   </form>
+                  <a href="/journals/<%= journal.id %>/edit">edit</a> 
                   <% }) %>
             <% } else { %>
              <h3>No Entries yet</h3>
@@ -45,6 +47,48 @@
             <input type="submit" value="Add-journal">
             </form>
       </section></center>
+
+      <section id="budget tracker">
+            <table id="budget-table">
+                  <h2>Track how much you spent</h2>
+                  <thead>
+                        <tr>
+                              <th>Activity</th>
+                              <th>Date: </th>
+                              <th>Cost: </th>
+                        </tr>
+                  </thead>
+           
+            <tbody>
+                  <% if (travel.budgets.length) { %>
+                        <% travel.budgets.forEach(function(budget) {%>
+                              <tr>
+                                    <td><%= budget.activity %> </td>
+                                    <td><%= budget.activityDate %> </td>
+                                    <td><%= budget.cost %> </td>
+                                    <td><form method="POST" action="/travels/<%=travel.id %>/budgets/<%=budget.id%>?_method=DELETE">
+                                          <input type="submit" value="Delete-Budget">
+                                    </form>
+                              </td>
+                              </tr>
+                        <% }) %>
+                  <% } else { %>
+                   <h3>No Entries yet</h3>
+                   <% } %>
+            </tbody>
+      </table>
+
+      </section>
+
+      <section>
+            <form id="add-budget-entry" method="POST" action="/travels/<%= travel._id %>/budgets">
+            <label>Type of Activity: <input type="text" name="activity"></label><br><br>
+            <label>Date of Purchase: <input type="date" name="activityDate" required></label><br><br>
+            <label>Cost: <input type="number" name="cost"></label><br><br>
+            <input type="submit" value="Submit">
+            </form>
+            
+      </section> 
 </main>
 </body>
 </html>

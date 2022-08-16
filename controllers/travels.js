@@ -92,6 +92,4 @@ async function updateTravel(req, res){
     } catch(err){
         res.send(err)
     }
-
-
 }

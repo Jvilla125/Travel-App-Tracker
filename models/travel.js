@@ -11,6 +11,17 @@ const imageSchema = new mongoose.Schema({
         contentType: String
     }],
 })
+const budgetSchema = new mongoose.Schema({
+    activity: String,
+    activityDate: {
+        type: Date,
+        default: Date.now,
+        get: (date) => date.toLocaleDateString("en-US")
+    },
+    cost: Number
+})
+
+
 const travelSchema = new mongoose.Schema({
     continent: String,
     country: String,
@@ -28,6 +39,7 @@ const travelSchema = new mongoose.Schema({
     },
     images: [imageSchema],
     journals: [journalSchema],
+    budgets: [budgetSchema],
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
 });
 
