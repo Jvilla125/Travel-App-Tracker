@@ -16,6 +16,16 @@ const travelSchema = new mongoose.Schema({
     country: String,
     city: String,
     description: String,
+    dateArrived: {
+        type: Date,
+        default: Date.now,
+        get: (date) => date.toLocaleDateString("en-US")
+        },
+    dateDeparted: {
+        type: Date,
+        default: Date.now,
+        get: (date) => date.toLocaleDateString("en-US")
+    },
     images: [imageSchema],
     journals: [journalSchema],
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}

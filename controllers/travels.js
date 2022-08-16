@@ -85,7 +85,8 @@ async function updateTravel(req, res){
     allTravels.country = req.body.country;
     allTravels.city = req.body.city;
     allTravels.description = req.body.description;
-
+    allTravels.dateArrived = req.body.dateArrived;
+    allTravels.dateDeparted = req.body.dateDeparted;
     allTravels.save();
     res.redirect(`${allTravels._id}`);
     } catch(err){

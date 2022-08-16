@@ -9,6 +9,7 @@ module.exports = {
 
 function create(req, res){
     Travel.findById(req.params.id, function(err, allTravels){
+        req.body.user = req.user._id;
         allTravels.journals.push(req.body);
         const journalArray = allTravels.journals;
         console.log(journalArray, "<- Journal array");
@@ -30,6 +31,12 @@ function deleteJournal(req, res){
         });
     });
 }
+
+// function editJournal(req, res){
+//     Travel.findById(req.params.id, function(err, allTravels){
+
+//     })
+// }
 
 function updateJournal(req, res){
     Travel.findOne({'journals._id': req.params.id}, function(err, travel){

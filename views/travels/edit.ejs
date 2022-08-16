@@ -17,17 +17,25 @@
         </select><br><br>
 
         <label>Country: </label>
-        <div>Your original answer: <%= travel.country %> </div>
-        <input type="text" name="country"><br><br>
+        <div>Your original answer:  </div>
+        <input type="text" name="country" value="<%= travel.country %>"><br><br>
 
         <label>City: </label>
-        <div>Your original answer: <%= travel.city %> </div>
-        <input type="text" name="city"><br><br>
-        
-        <label>Description: </label>
-        <div>Your original description: <%= travel.description %> </div>
-        <input type="text" name="description"><br><br>
+        <div>Your original answer: </div>
+        <input type="text" name="city" value="<%= travel.city %>"><br><br>
 
+        <label>Description: </label>
+        <div>Your original description:</div>
+        <input type="text" name="description"value="<%= travel.description %>"><br><br>
+
+        <label>Date Arrived:</label>
+        <div>Your original date: <%= travel.dateArrived %>  </div>
+            <input type="date" name="dateArrived" value="<%= travel.dateArrived %>" required> 
+        </label><br><br>
+        <label>Date Departed:</label>
+        <div>Your original departed date: <%= travel.dateDeparted %> </div>
+            <input type="date" name="dateDeparted" value="<%= travel.dateDeparted %>" required> 
+        <br><br>
         <input type="submit" value="Update trip">
          </form>
 </main>

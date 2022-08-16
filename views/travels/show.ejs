@@ -6,15 +6,16 @@
             <div>Country: <%= travel.country %> </div> <br>
             <div>City: <%= travel.city %> </div> <br>
             <div> Description: <%= travel.description %> </div><br>
+            <div>Date arrived: <%= travel.dateArrived %> </div><br>
+            <div>Date departed: <%= travel.dateDeparted %> </div><br>
             <a href="/travels/<%=travel.id  %>/edit">edit</a> 
 
       </form>
       </section></center>
       
-      <h2>Images:</h2>
+      <center><h2>Images:</h2>
             <% if (travel.images.length) { %>
                   <% travel.images.forEach(function(img) {%>
-                   
                   <% }) %>
             <% } else { %>
              <h3>No Images uploaded yet</h3>
@@ -26,9 +27,6 @@
                    <div> Text <%= journal.text %> </div>
                    <form method="POST" action="/travels/<%=travel.id %>/journals/<%=journal.id%>?_method=DELETE">
                         <input type="submit" value="Delete-Journal">
-                  <form action="/journals/<%= journal._id %>?_method=PUT" method="POST">
-                  <input name="text" value="<%= journal.text %>">
-                  <button type="submit">Update comment</button> 
                   </form>
                   <% }) %>
             <% } else { %>
@@ -40,13 +38,13 @@
             <form id="add-journal-entry" method="POST" action="/travels/<%= travel._id %>/journals">
             <label>Item No.
                   <input type="text" name="itemNo">
-            </label><br>
+            </label><br><br>
             <label> Text
                   <input type="text" name="text">
-            </label>
+            </label><br><br>
             <input type="submit" value="Add-journal">
             </form>
-      </section>
+      </section></center>
 </main>
 </body>
 </html>
