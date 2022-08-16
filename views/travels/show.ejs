@@ -6,10 +6,19 @@
             <div>Country: <%= travel.country %> </div> <br>
             <div>City: <%= travel.city %> </div> <br>
             <div> Description: <%= travel.description %> </div><br>
-            <div>Image: <%= travel.img %> </div>
+            <a href="/travels/<%=travel.id  %>/edit">edit</a> 
+
+      </form>
       </section></center>
       
-      
+      <h2>Images:</h2>
+            <% if (travel.images.length) { %>
+                  <% travel.images.forEach(function(img) {%>
+                   
+                  <% }) %>
+            <% } else { %>
+             <h3>No Images uploaded yet</h3>
+             <% } %>
             <h2>Journals:</h2>
             <% if (travel.journals.length) { %>
                   <% travel.journals.forEach(function(journal) {%>
@@ -41,3 +50,4 @@
 </main>
 </body>
 </html>
+

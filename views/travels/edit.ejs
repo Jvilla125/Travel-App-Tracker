@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+<body>
+
+    <center><h1>Welcome to the edit page</h1></center>
+    
+    <form id="update-trip" action="/travels/<%= travel.id %>?_method=PUT" method="POST">
+        <label>Continent:</label>
+        <div>Your original answer: <%= travel.continent %> </div>
+        <select name="continent" >
+            <option value="Africa">Africa</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="Australia">Australia</option>
+            <option value="North America">North America</option>
+            <option value="South America">South America</option>
+            <option value="Europe">Europe</option>
+            <option value="Asia">Asia</option>
+        </select><br><br>
+
+        <label>Country: </label>
+        <div>Your original answer: <%= travel.country %> </div>
+        <input type="text" name="country"><br><br>
+
+        <label>City: </label>
+        <div>Your original answer: <%= travel.city %> </div>
+        <input type="text" name="city"><br><br>
+        
+        <label>Description: </label>
+        <div>Your original description: <%= travel.description %> </div>
+        <input type="text" name="description"><br><br>
+
+        <input type="submit" value="Update trip">
+         </form>
+</main>
+</body>
+</html>

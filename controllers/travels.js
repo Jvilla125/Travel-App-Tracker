@@ -6,7 +6,9 @@ module.exports = {
     show,
     new: newTravel,
     create,
-    delete: deleteTravel
+    delete: deleteTravel,
+    edit: editTravel,
+    update: updateTravel
 }
 
 function index(req, res){
@@ -67,3 +69,28 @@ function deleteTravel(req, res){
         });
     }
     
+function editTravel(req, res){
+    Travel.findById(req.params.id, function(err, allTravels){
+        // if (!allTravels.user.equals(req.user._id)) return res.redirect('/travels');
+        res.render(`travels/edit`, {
+            travel: allTravels
+        });
+    });
+}
+
+async function updateTravel(req, res){
+    try{
+    const allTravels = await Travel.findByIdAndUpdate(req.params.id)
+    allTravels.continent = req.body.continent;
+    allTravels.country = req.body.country;
+    allTravels.city = req.body.city;
+    allTravels.description = req.body.description;
+
+    allTravels.save();
+    res.redirect(`${allTravels._id}`);
+    } catch(err){
+        res.send(err)
+    }
+
+
+}
