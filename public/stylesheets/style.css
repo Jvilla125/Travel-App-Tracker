@@ -1,6 +1,11 @@
 .brand-logo {
   margin-left: 15px;
 }
+/* body{
+  background-image: url(https://i.imgur.com/gyYJB84.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
 
 .card .card-content .card-title {
   margin-bottom: 10px;

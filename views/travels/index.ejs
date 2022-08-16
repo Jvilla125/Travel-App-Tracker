@@ -6,11 +6,13 @@
         <p>
         <% travels.forEach(t => { %>
             <center>
+            
             --> <%= t.continent %> 
             <a href="/travels/<%= t._id %>">View Trip</a>
             <form method="POST" action="/travels/<%=t.id%>?_method=DELETE">
                 <input type="submit" value="Delete-Trip"><br><br>
                 </form>
+              
             </center>
         <% }) %>
           <center><a href="/travels/new">Add a trip</a></center></p>
