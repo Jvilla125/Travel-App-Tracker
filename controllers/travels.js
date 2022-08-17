@@ -12,7 +12,7 @@ module.exports = {
 }
 
 function index(req, res){
-    Travel.find({}, function(err, travelDocs){
+    Travel.find({user: req.user}, function(err, travelDocs){
         console.log(travelDocs, "<- travel docs")
         if(err){
             res.send("You have an error");

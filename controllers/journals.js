@@ -34,11 +34,11 @@ function deleteJournal(req, res){
 }
 
 function editJournal(req, res){
-    Travel.findOne({'journals._id': req.params.id}, function(err, allTravels){
-        const journalDoc = allTravels.journals.id(req.params.id);
+    Travel.findById(req.params.id, function(err, travel){
+        const journalDoc = travel.journals.id(req.params.id);
         console.log(journalDoc, "<-- journal Doc")
         res.render(`journals/edit`,{
-        travel: allTravels,
+        travel: travel,
         journal: journalDoc
         })
     })
@@ -57,17 +57,33 @@ function editJournal(req, res){
 //     });
 // }
 
-async function updateJournal(req, res){
-    try{
-        const allTravels = await Travel.findOne({'journals._id': req.params.id});
-        console.log(req.params.id, "<- req.params.id")
-        const journalSubdoc = allTravels.journals.id(req.params.id);
-        console.log(req.params.id, "<- journal req.params.id")
-        journalSubdoc.text = req.body.text;
-        journalSubdoc.itemNo = req.body.itemNo;
-        journalSubdoc.save();
-        res.redirect(`${allTravels._id}`);
-    } catch(err){
-        res.send(err);
-    }
+// async function updateJournal(req, res){
+//     try{
+//         const allTravels = await Travel.findOne({'journals._id': req.params.id});
+//         console.log(req.params.id, "<- req.params.id")
+//         const journalSubdoc = allTravels.journals.id(req.params.id);
+//         console.log(req.params.id, "<- journal req.params.id")
+//         journalSubdoc.text = req.body.text;
+//         journalSubdoc.itemNo = req.body.itemNo;
+//         journalSubdoc.save();
+//         res.redirect(`${allTravels._id}`);
+//     } catch(err){
+//         res.send(err);
+//     }
+// }
+
+function updateJournal(req, res){
+    console.log("an update function")
+    Travel.findById(req.params.id, function(err, allTravels){
+
+        for(let i = 0; i <allTravels.journals; i++){
+            if (allTravels.journals[i]._id == req.params.id){
+                allTravels.journals[i].text = req.body.text;
+                allTravels.journals[i].itemNo = req.body.itemNo;
+                allTravels.save(function (err){
+                    res.redirect(`/travels/${req.params._id}`)
+                });
+            }
+        }
+    })
 }

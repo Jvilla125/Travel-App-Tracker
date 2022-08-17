@@ -23,13 +23,13 @@
 
             <h2>Journals:</h2>
             <% if (travel.journals.length) { %>
-                  <% travel.journals.forEach(function(journal) {%>
+                  <% travel.journals.forEach(function(journal){%>
                    <div>Item no. <%= journal.itemNo %> </div>
                    <div> Text <%= journal.text %> </div>
                    <form method="POST" action="/travels/<%=travel.id %>/journals/<%=journal.id%>?_method=DELETE">
                         <input type="submit" value="Delete-Journal">
                   </form>
-                  <a href="/journals/<%= journal.id %>/edit">edit</a> 
+                  <a href="/journals/<%= travel.id %>/<%= journal.id %>/edit">edit</a> 
                   <% }) %>
             <% } else { %>
              <h3>No Entries yet</h3>
@@ -48,7 +48,7 @@
             </form>
       </section></center>
 
-      <section id="budget tracker">
+      <center><section id="budget tracker">
             <table id="budget-table">
                   <h2>Track how much you spent</h2>
                   <thead>
@@ -88,7 +88,7 @@
             <input type="submit" value="Submit">
             </form>
             
-      </section> 
+      </section> </center>
 </main>
 </body>
 </html>
