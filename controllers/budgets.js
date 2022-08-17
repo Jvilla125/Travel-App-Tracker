@@ -43,17 +43,16 @@ function editBudget(req, res){
     })
 }
 
-function updateBudget(req, res){
-    Travel.findById(req.params.id, function (err, allTravels){
-        for(let i = 0; i<allTravels.budgets; i++){
-            if(allTravels.budgets[i]._ == req.params.id){
-                allTravels.budgets[i].activity = req.body.activity;
-                allTravels.budgets[i].activityDate = req.body.activityDate;
-                allTravels.budgets[i].cost = req.body.ocst;
-                allTravels.save(function (err){
-                    res.redirect(`/travels/${res.params._id}`)
-                })
-            }
-        }
-    })
+async function updateBudget(req, res){
+    try{
+        const allTravels = await Travel.findOne({'budgets._id': req.params.id});
+        const budgetDoc = allTravels.budgets.id(req.params.id);
+        budgetDoc.activity = req.body.activity;
+        budgetDoc.activityDate = req.body.activityDate;
+        budgetDoc.cost = req.body.cost
+        allTravels.save();
+        res.redirect(`/travels/${allTravels._id}`);
+    } catch(err){
+        res.send(err);
+    }
 }
