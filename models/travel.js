@@ -7,8 +7,7 @@ const journalSchema = new mongoose.Schema({
 );
 const imageSchema = new mongoose.Schema({
     img: [{
-        data: Buffer,
-        contentType: String
+        type: String
     }],
 })
 const budgetSchema = new mongoose.Schema({
