@@ -13,14 +13,28 @@
       </form>
       </section></center>
       
-      <center><h2>Images:</h2>
+      <center>
+            <section><h2>Images:</h2>
+            <form id="add-image" method="POST" action="/travels/<%= travel._id %>/images" >
+                  <label>Image.
+                        <input type="text" name="images">
+                  </label><br><br>
+                  <input type="submit" value="Add-image">
+            </form>
+      </section>
+      <section>
             <% if (travel.images.length) { %>
                   <% travel.images.forEach(function(img) {%>
+                  <img src="<%= img.images %> " class="image-size">
+                  <form method="POST" action="/travels/<%=travel.id %>/images/<%=img.id%>?_method=DELETE">
+                        <input type="submit" value="Delete-image">
+                  </form>
                   <% }) %>
             <% } else { %>
              <h3>No Images uploaded yet</h3>
              <% } %>
 
+      </section>
             <h2>Journals:</h2>
             <% if (travel.journals.length) { %>
                   <% travel.journals.forEach(function(journal){%>
@@ -29,7 +43,7 @@
                    <form method="POST" action="/travels/<%=travel.id %>/journals/<%=journal.id%>?_method=DELETE">
                         <input type="submit" value="Delete-Journal">
                   </form>
-                  <a href="/journals/<%= travel.id %>/<%= journal.id %>/edit">edit</a> 
+                  <a href="/journals/<%= journal.id %>/edit">edit</a> 
                   <% }) %>
             <% } else { %>
              <h3>No Entries yet</h3>
@@ -69,6 +83,7 @@
                                     <td><form method="POST" action="/travels/<%=travel.id %>/budgets/<%=budget.id%>?_method=DELETE">
                                           <input type="submit" value="Delete-Budget">
                                     </form>
+                                    <a href="/budgets/<%= budget.id %>/edit">edit</a> 
                               </td>
                               </tr>
                         <% }) %>

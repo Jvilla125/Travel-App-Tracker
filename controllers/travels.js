@@ -24,18 +24,6 @@ function index(req, res){
     
 }
 
-// async function show(req, res){
-//   try{
-//     const travelDocument = await Travel.findById(req.params.id)
-//     console.log(travelDocument, "<- travel document")
-//     res.render("travels/show.ejs",{
-//         travels: travelDocument
-//     });
-//   } catch(err){
-//     res.send(err);
-//   }
-// }
-
 function show(req, res){
     Travel.findById(req.params.id, function (err, travelDocs){
         console.log(travelDocs, "<-- all travels")

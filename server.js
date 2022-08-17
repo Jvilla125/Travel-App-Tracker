@@ -15,6 +15,7 @@ const indexRouter = require('./routes/index');
 const travelsRouter = require('./routes/travels');
 const journalsRouter = require('./routes/journals');
 const budgetsRouter = require('./routes/budgets');
+const imagesRouter = require('./routes/images');
 // connect to the MongoDB with mongoose
 require('./config/database');
 // configure Passport
@@ -59,6 +60,7 @@ app.use('/', indexRouter);
 app.use('/travels', travelsRouter);
 app.use('/', journalsRouter); // <- nested inside of profile, m
 app.use('/', budgetsRouter);
+app.use('/', imagesRouter);
 
 // invalid request, send 404 page
 app.use(function(req, res) {

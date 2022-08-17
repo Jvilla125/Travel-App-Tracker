@@ -4,7 +4,7 @@
     <center><h1>Welcome to the edit page</h1></center>
      
     <h2>Add a journal entry</h2>
-    <form id="update-journal-entry" method="POST" action="/journals/<%= journal._id %>">
+    <form id="update-journal-entry" action="/travels/<%= travel.id %>?_method=PUT" method="POST">
     <label>Item No. <%= journal.itemNo %> 
           <input type="text" name="itemNo">
     </label><br><br>

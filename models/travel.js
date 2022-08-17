@@ -6,9 +6,9 @@ const journalSchema = new mongoose.Schema({
     }
 );
 const imageSchema = new mongoose.Schema({
-    img: [{
+    images: {
         type: String
-    }],
+    },
 })
 const budgetSchema = new mongoose.Schema({
     activity: String,
