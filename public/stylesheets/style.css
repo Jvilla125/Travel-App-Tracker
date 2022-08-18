@@ -1,3 +1,4 @@
+
 .login {
   display: flex;
   justify-content: center;
@@ -40,8 +41,9 @@
   z-index: -1;
   margin: -100px 0px 0px 0px;
   position: absolute;
-  height: 85%;
+  height: 100%;
   opacity: 0.9;
+
 }
 
 .review-user {
@@ -61,20 +63,12 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   border-radius: 10px;
 }
-
-/* .nav-button:hover{
-  font-size: 20px;
-  padding: 30px;
-  /* background-color: blue; 
-} */
 
 .nav-button {
   font-size: 20px;
   padding: 30px;
-  /* background-color: blue; */
 }
 
 #index-view {
@@ -84,29 +78,28 @@ nav {
   border-radius: 10px;
   width: 500px;
   margin: 100px;
-  border: 3px solid black;
+  border: 3px solid grey;
 
-}
-
-#budget-table {
-  font-size: 20px;
-  padding: 10px;
-  text-align: center
 }
 
 .image-size {
-  height: 500px;
-  width: 800px;
+  height: 400px;
+  width: 550px;
 }
 
+#image-display{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 5px;
+}
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 100px;
   background: lightblue;
-  /* margin: 20px; */
-  /* background-color: lightgrey; */
 }
 
 .div-view-trip {
@@ -115,13 +108,16 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
 }
-
+#h2-welcome{
+  margin: -1px;
+}
 .view-trip {
-  background-color: blue;
-  padding: 5px;
+  background-color: white;
+  border: solid 3px rgb(52, 47, 47);
+  border-radius: 30px;
   margin: 5px;
   width: 250px;
-  height: 250px;
+  height: 185px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -131,6 +127,41 @@ footer {
 .welcome {
   background-color: white;
   width: 500px;
-
+  border-radius: 20px;
   height: 150px;
+  border: solid 3px black;
+  margin: 10px;
+}
+
+.view-button {
+  width: 110px;
+  height: 35px;
+  background-image: linear-gradient(to right top, #6886b3, #4e7dc8, #3671db, #2c63ea, #3d4ff4);
+  box-shadow: 2px 2px 5px rgba(48, 70, 209, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.delete-button {
+  width: 110px;
+  height: 35px;
+  background-image: linear-gradient(to right top, #9e2837, #b22435, #c51f32, #d8192e, #eb1227);
+  box-shadow: 2px 2px 5px rgba(143, 43, 32, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+#trip-info{
+  background-color: blue;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#image-info{
+  background-color: lightblue;
+}
+#budget-table {
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+  background-color: cyan
 }

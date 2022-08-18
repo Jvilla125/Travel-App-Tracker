@@ -7,24 +7,23 @@
     <% if (user) { %>
       <center>
         <div class="welcome">
-          <h1>Welcome to the travel tracking app</h1>
-          <h2>Please click one of the following links to view your trip </h2>
+          <h1>Welcome to the Travel Tracking App</h1>
+          <h3>Please click one of the following links to view your trip </h3>
         </div>
       </center>
       <div class="div-view-trip">
         <% travels.forEach(t=> { %>
           <section class="view-trip">
-            <h1>
-              <%= t.continent %>
-            </h1>
-            <a href="/travels/<%= t._id %>">View Trip</a><br>
+            <h2 id="h2-welcome"><u><%= t.continent %></u></h2>
+            <h3><%= t.country %> </h3>
+            <a href="/travels/<%= t._id %>"><button class="view-button">View Trip</button></a><br>
             <form method="POST" action="/travels/<%=t.id%>?_method=DELETE">
-              <input type="submit" value="Delete-Trip"><br><br>
+              <input type="submit" value="Delete-Trip" class="delete-button"><br><br>
             </form>
           </section>
           <% }) %>
       </div>
-      <a href="/travels/new">Add a trip</a></p>
+
       <% } else { %>
         <center>
           <div id="index-view">
@@ -36,4 +35,7 @@
         <% } %>
 
 
-          <%- include('../partials/footer') %>
+      </main>
+    </body>
+    
+    </html> 
