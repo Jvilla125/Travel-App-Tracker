@@ -13,10 +13,6 @@ function create(req, res) {
         req.body.user = req.user._id;
         allTravels.journals.push(req.body);
         const journalArray = allTravels.journals;
-        console.log(journalArray, "<- Journal array");
-        console.log(req.params.id, "<- req.params.id");
-        console.log(req.body, "<- req.body.id");
-
         allTravels.save(function (err) {
             res.redirect(`/travels/${req.params.id}`);
         });
@@ -26,7 +22,6 @@ function create(req, res) {
 function deleteJournal(req, res) {
     Travel.findById(req.params.id, function (err, allTravels) {
         allTravels.journals.id(req.params.joId).remove()
-
         allTravels.save(function (err) {
             res.redirect(`/travels/${req.params.id}`);
         });
@@ -46,9 +41,8 @@ function editJournal(req, res) {
 async function updateJournal(req, res) {
     try {
         const allTravels = await Travel.findOne({ 'journals._id': req.params.id });
-        console.log(req.params.id, "<- req.params.id")
         const journalSubdoc = allTravels.journals.id(req.params.id);
-        console.log(req.params.id, "<- journal req.params.id")
+
         journalSubdoc.text = req.body.text;
         journalSubdoc.itemNo = req.body.itemNo;
         allTravels.save();

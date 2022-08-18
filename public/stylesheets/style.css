@@ -1,14 +1,12 @@
-
-
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 34px;
-  /* background-color: darkgray; */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
-.login-button{
+
+.login-button {
   width: 150px;
   height: 40px;
   margin: 10px;
@@ -17,14 +15,17 @@
   font-size: 20px;
   border-radius: 10px;
 }
-.login-button:hover{
+
+.login-button:hover {
   background: rgb(141, 52, 141);
   transition: 0.5s;
 }
+
 .login img {
   height: 30px;
 }
-.logo{
+
+.logo {
   width: 120px;
   height: 100px;
   opacity: 0.9;
@@ -33,7 +34,8 @@
   border-radius: 50%;
   box-shadow: 2px 2px 5px rgba(48, 49, 61, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
-.index-image{
+
+.index-image {
   width: 100%;
   z-index: -1;
   margin: -100px 0px 0px 0px;
@@ -41,6 +43,7 @@
   height: 85%;
   opacity: 0.9;
 }
+
 .review-user {
   display: flex;
   justify-content: center;
@@ -51,6 +54,7 @@
   border-radius: 50%;
   height: 40px;
 }
+
 nav {
   grid-area: nav;
   background-color: #B8C0C2;
@@ -67,33 +71,35 @@ nav {
   /* background-color: blue; 
 } */
 
-.nav-button{
+.nav-button {
   font-size: 20px;
   padding: 30px;
   /* background-color: blue; */
 }
-#index-view{
+
+#index-view {
   display: grid;
   /* justify-content: center; */
   background-color: lightcyan;
   border-radius: 10px;
-  width: 500px; 
+  width: 500px;
   margin: 100px;
   border: 3px solid black;
-  
+
 }
 
-#budget-table{
-  font-size: 20px; 
+#budget-table {
+  font-size: 20px;
   padding: 10px;
   text-align: center
 }
-.image-size{
+
+.image-size {
   height: 500px;
   width: 800px;
 }
 
-footer{
+footer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -102,13 +108,15 @@ footer{
   /* margin: 20px; */
   /* background-color: lightgrey; */
 }
-.div-view-trip{
+
+.div-view-trip {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
-.view-trip{  
+
+.view-trip {
   background-color: blue;
   padding: 5px;
   margin: 5px;
@@ -120,7 +128,7 @@ footer{
   align-items: center;
 }
 
-.welcome{
+.welcome {
   background-color: white;
   width: 500px;
 
