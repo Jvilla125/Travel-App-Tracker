@@ -30,13 +30,15 @@
 
         <label>Date Arrived:</label>
         <div>Your original date: <%= travel.dateArrived %>  </div>
-            <input type="date" name="dateArrived" value="<%= travel.dateArrived %>" required> 
+        <input type="date" name="dateArrived" value="<%= travel.dateArrived %>" required> 
         </label><br><br>
+        
         <label>Date Departed:</label>
         <div>Your original departed date: <%= travel.dateDeparted %> </div>
-            <input type="date" name="dateDeparted" value="<%= travel.dateDeparted %>" required> 
+        <input type="date" name="dateDeparted" value="<%= travel.dateDeparted %>" required> 
         <br><br>
+        
         <input type="submit" value="Update trip">
-         </form>
+    </form>
          
-         <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

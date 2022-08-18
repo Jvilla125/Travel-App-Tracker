@@ -1,27 +1,45 @@
-body{
-  background-color: lightgray;
-}
+
 
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 34px;
-  background-color: darkgray;
+  /* background-color: darkgray; */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
-#index-login{
+.login-button{
   width: 150px;
+  height: 40px;
+  margin: 10px;
+  background-image: linear-gradient(to right top, #6886b3, #4e7dc8, #3671db, #2c63ea, #3d4ff4);
+  box-shadow: 2px 2px 5px rgba(48, 70, 209, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  border-radius: 10px;
+}
+.login-button:hover{
+  background: rgb(141, 52, 141);
+  transition: 0.5s;
 }
 .login img {
   height: 30px;
 }
+.logo{
+  width: 120px;
+  height: 100px;
+  opacity: 0.9;
+  padding: 5px;
+  margin-left: 30px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(48, 49, 61, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
 .index-image{
   width: 100%;
   z-index: -1;
+  margin: -100px 0px 0px 0px;
   position: absolute;
   height: 85%;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .review-user {
   display: flex;
@@ -37,25 +55,34 @@ nav {
   grid-area: nav;
   background-color: #B8C0C2;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   border-radius: 10px;
 }
 
-nav > a {
-  margin: 30px;
-  text-decoration: none;
-  border-radius: 5px;
-}
+/* .nav-button:hover{
+  font-size: 20px;
+  padding: 30px;
+  /* background-color: blue; 
+} */
 
+.nav-button{
+  font-size: 20px;
+  padding: 30px;
+  /* background-color: blue; */
+}
 .index-page{
   display: grid;
   /* justify-content: center; */
-  background-color: lightblue;
+  background-color: lightcyan;
   border-radius: 10px;
   width: 500px; 
+  margin: 100px;
+  border: 3px solid black;
+  
 }
+
 #budget-table{
   font-size: 20px; 
   padding: 10px;
@@ -70,6 +97,8 @@ footer{
   position: absolute;
   bottom: 0;
   width: 100%;
+  height: 100px;
+  
   /* margin: 20px; */
-  background-color: blue;
+  /* background-color: lightgrey; */
 }

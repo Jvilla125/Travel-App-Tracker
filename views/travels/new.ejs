@@ -1,8 +1,9 @@
 <%- include('../partials/header') %>
 <body>
-    <h1>Test</h1>
+    
     <h1> Please create a new trip</h1>
     <form id="new-trip" action="/travels" method="POST">
+
         <label>Continent:</label>
         <select name="continent">
             <option value="Africa">Africa</option>
@@ -13,19 +14,25 @@
             <option value="Europe">Europe</option>
             <option value="Asia">Asia</option>
         </select><br><br>
+
         <label>Country: </label>
         <input type="text" name="country"><br><br>
+
         <label>City: </label>
         <input type="text" name="city"><br><br>
+
         <label>Date Arrived:
             <input type="date" name="dateArrived" required> 
         </label><br><br>
+
         <label>Date Departed:
             <input type="date" name="dateDeparted" required> 
         </label><br><br>
+
         <label>Description: </label>
         <input type="text" name="description"><br><br>
+
         <input type="submit" value="Add trip">
-         </form>
+    </form>
         
-         <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>
