@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const journalSchema = new mongoose.Schema({
-    itemNo: {type: Number, min: 0},
+    itemNo: { type: Number, min: 0 },
     text: String,
-    }
+}
 );
 const imageSchema = new mongoose.Schema({
     images: {
@@ -30,7 +30,7 @@ const travelSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
         get: (date) => date.toLocaleDateString("en-US")
-        },
+    },
     dateDeparted: {
         type: Date,
         default: Date.now,
@@ -39,7 +39,7 @@ const travelSchema = new mongoose.Schema({
     images: [imageSchema],
     journals: [journalSchema],
     budgets: [budgetSchema],
-    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
 module.exports = mongoose.model("Travel", travelSchema);

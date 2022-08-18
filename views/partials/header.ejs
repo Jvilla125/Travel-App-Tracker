@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title></title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title></title>
 </head>
+
 <body>
   <div class="nav-header">
     <nav>
-      <img class='logo' src="https://www.pngfind.com/pngs/m/423-4232831_travel-png-images-transparent-background-travel-clipart-png.png">
-        <% if (user) { %>
-          <a href="/" class="nav-button">Home</a>
-          <a href="/" class="nav-button">My Personal Trips</a>
-          <a href="/travels/new" class="nav-button">Add a trip</a>
-          <a href="/logout" class="nav-button">LOG OUT</a>
+      <img class='logo'
+        src="https://www.pngfind.com/pngs/m/423-4232831_travel-png-images-transparent-background-travel-clipart-png.png">
+      <% if (user) { %>
+        <a href="/" class="nav-button">Home</a>
+        <a href="/" class="nav-button">My Personal Trips</a>
+        <a href="/travels/new" class="nav-button">Add a trip</a>
+        <a href="/logout" class="nav-button">LOG OUT</a>
         <% } else { %>
           <a href="/auth/google" class="login" class="nav-button">LOG IN</a>
-        <% } %>
-      </nav>
-      </div>
-<main>
+          <% } %>
+    </nav>
+  </div>
+  <main>

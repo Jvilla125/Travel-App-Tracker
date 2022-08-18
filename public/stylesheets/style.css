@@ -72,7 +72,7 @@ nav {
   padding: 30px;
   /* background-color: blue; */
 }
-.index-page{
+#index-view{
   display: grid;
   /* justify-content: center; */
   background-color: lightcyan;
@@ -98,7 +98,31 @@ footer{
   bottom: 0;
   width: 100%;
   height: 100px;
-  
+  background: lightblue;
   /* margin: 20px; */
   /* background-color: lightgrey; */
+}
+.div-view-trip{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.view-trip{  
+  background-color: blue;
+  padding: 5px;
+  margin: 5px;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome{
+  background-color: white;
+  width: 500px;
+
+  height: 150px;
 }

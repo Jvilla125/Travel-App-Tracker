@@ -63,7 +63,7 @@ app.use('/', budgetsRouter);
 app.use('/', imagesRouter);
 
 // invalid request, send 404 page
-app.use(function(req, res) {
+app.use(function (req, res) {
   res.status(404).send('Cant find that!');
 });
 

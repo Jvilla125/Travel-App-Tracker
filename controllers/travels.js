@@ -11,21 +11,21 @@ module.exports = {
     update: updateTravel
 }
 
-function index(req, res){
-    Travel.find({user: req.user}, function(err, travelDocs){
+function index(req, res) {
+    Travel.find({ user: req.user }, function (err, travelDocs) {
         console.log(travelDocs, "<- travel docs")
-        if(err){
+        if (err) {
             res.send("You have an error");
         }
         res.render("travels/index.ejs", {
             travels: travelDocs
         });
     });
-    
+
 }
 
-function show(req, res){
-    Travel.findById(req.params.id, function (err, travelDocs){
+function show(req, res) {
+    Travel.findById(req.params.id, function (err, travelDocs) {
         console.log(travelDocs, "<-- all travels")
         res.render("travels/show.ejs", {
             travel: travelDocs
@@ -33,14 +33,14 @@ function show(req, res){
     });
 }
 
-function newTravel(req, res){
+function newTravel(req, res) {
     res.render("travels/new");
 }
 
-function create(req, res){
+function create(req, res) {
     req.body.user = req.user._id
     console.log(req.body);
-    Travel.create(req.body, function(err, travelDocs){
+    Travel.create(req.body, function (err, travelDocs) {
         if (err) {
             console.log(err, "error in create controller")
             return res.render("travels/new.ejs");
@@ -50,34 +50,33 @@ function create(req, res){
     });
 }
 
-function deleteTravel(req, res){
-    Travel.findByIdAndRemove(req.params.id, function(err){
+function deleteTravel(req, res) {
+    Travel.findByIdAndRemove(req.params.id, function (err) {
 
-            res.redirect("/travels")
-        });
-    }
-    
-function editTravel(req, res){
-    Travel.findById(req.params.id, function(err, allTravels){
-        // if (!allTravels.user.equals(req.user._id)) return res.redirect('/travels');
+        res.redirect("/travels")
+    });
+}
+
+function editTravel(req, res) {
+    Travel.findById(req.params.id, function (err, allTravels) {
         res.render(`travels/edit`, {
             travel: allTravels
         });
     });
 }
 
-async function updateTravel(req, res){
-    try{
-    const allTravels = await Travel.findByIdAndUpdate(req.params.id)
-    allTravels.continent = req.body.continent;
-    allTravels.country = req.body.country;
-    allTravels.city = req.body.city;
-    allTravels.description = req.body.description;
-    allTravels.dateArrived = req.body.dateArrived;
-    allTravels.dateDeparted = req.body.dateDeparted;
-    allTravels.save();
-    res.redirect(`${allTravels._id}`);
-    } catch(err){
+async function updateTravel(req, res) {
+    try {
+        const allTravels = await Travel.findByIdAndUpdate(req.params.id)
+        allTravels.continent = req.body.continent;
+        allTravels.country = req.body.country;
+        allTravels.city = req.body.city;
+        allTravels.description = req.body.description;
+        allTravels.dateArrived = req.body.dateArrived;
+        allTravels.dateDeparted = req.body.dateDeparted;
+        allTravels.save();
+        res.redirect(`${allTravels._id}`);
+    } catch (err) {
         res.send(err)
     }
 }

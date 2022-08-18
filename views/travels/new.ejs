@@ -1,38 +1,39 @@
 <%- include('../partials/header') %>
-<body>
-    
-    <h1> Please create a new trip</h1>
-    <form id="new-trip" action="/travels" method="POST">
 
-        <label>Continent:</label>
-        <select name="continent">
-            <option value="Africa">Africa</option>
-            <option value="Antarctica">Antarctica</option>
-            <option value="Australia">Australia</option>
-            <option value="North America">North America</option>
-            <option value="South America">South America</option>
-            <option value="Europe">Europe</option>
-            <option value="Asia">Asia</option>
-        </select><br><br>
+    <body>
 
-        <label>Country: </label>
-        <input type="text" name="country"><br><br>
+        <h1> Please create a new trip</h1>
+        <form id="new-trip" action="/travels" method="POST">
 
-        <label>City: </label>
-        <input type="text" name="city"><br><br>
+            <label>Continent:</label>
+            <select name="continent">
+                <option value="Africa">Africa</option>
+                <option value="Antarctica">Antarctica</option>
+                <option value="Australia">Australia</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+                <option value="Europe">Europe</option>
+                <option value="Asia">Asia</option>
+            </select><br><br>
 
-        <label>Date Arrived:
-            <input type="date" name="dateArrived" required> 
-        </label><br><br>
+            <label>Country: </label>
+            <input type="text" name="country"><br><br>
 
-        <label>Date Departed:
-            <input type="date" name="dateDeparted" required> 
-        </label><br><br>
+            <label>City: </label>
+            <input type="text" name="city"><br><br>
 
-        <label>Description: </label>
-        <input type="text" name="description"><br><br>
+            <label>Date Arrived:
+                <input type="date" name="dateArrived" required>
+            </label><br><br>
 
-        <input type="submit" value="Add trip">
-    </form>
-        
-<%- include('../partials/footer') %>
+            <label>Date Departed:
+                <input type="date" name="dateDeparted" required>
+            </label><br><br>
+
+            <label>Description: </label>
+            <input type="text" name="description"><br><br>
+
+            <input type="submit" value="Add trip">
+        </form>
+
+        <%- include('../partials/footer') %>

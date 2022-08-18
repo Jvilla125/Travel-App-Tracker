@@ -1,17 +1,20 @@
 <%- include('../partials/header') %>
-<body>
 
-    <center><h1>Welcome to the edit page</h1></center>
-     
-    <h2>Add a journal entry</h2>
-    <form id="update-journal-entry" action="/journals/<%= journal.id %>?_method=PUT" method="POST">
-    <label>Item No. <%= journal.itemNo %> 
-          <input type="text" name="itemNo">
-    </label><br><br>
-    <label> Text <%= journal.text %> 
-          <input type="text" name="text">
-    </label><br><br>
-    <input type="submit" value="update-journal">
-    </form>
+      <body>
 
-    <%- include('../partials/footer') %>
+            <center>
+                  <h1>Welcome to the edit page</h1>
+            </center>
+
+            <h2>Add a journal entry</h2>
+            <form id="update-journal-entry" action="/journals/<%= journal.id %>?_method=PUT" method="POST">
+                  <label>Item No. <%= journal.itemNo %>
+                              <input type="text" name="itemNo">
+                  </label><br><br>
+                  <label> Text <%= journal.text %>
+                              <input type="text" name="text">
+                  </label><br><br>
+                  <input type="submit" value="update-journal">
+            </form>
+
+            <%- include('../partials/footer') %>

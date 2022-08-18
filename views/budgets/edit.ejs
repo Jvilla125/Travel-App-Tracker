@@ -1,12 +1,15 @@
 <%- include('../partials/header') %>
-<body>
 
-    <center><h1>Welcome to the edit page</h1></center>
-    <form id="update-budget-entry" method="POST" action="/budgets/<%= budget._id %>?_method=PUT">
-    <label>Type of Activity: <input type="text" name="activity"></label><br><br>
-    <label>Date of Purchase: <input type="date" name="activityDate" required></label><br><br>
-    <label>Cost: <input type="number" name="cost"></label><br><br>
-    <input type="submit" value="Submit">
-    </form>
-    
-    <%- include('../partials/footer') %>
+    <body>
+
+        <center>
+            <h1>Welcome to the edit page</h1>
+        </center>
+        <form id="update-budget-entry" method="POST" action="/budgets/<%= budget._id %>?_method=PUT">
+            <label>Type of Activity: <input type="text" name="activity"></label><br><br>
+            <label>Date of Purchase: <input type="date" name="activityDate" required></label><br><br>
+            <label>Cost: <input type="number" name="cost"></label><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <%- include('../partials/footer') %>
