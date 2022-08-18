@@ -17,7 +17,7 @@
             <section><h2>Images:</h2>
             <form id="add-image" method="POST" action="/travels/<%= travel._id %>/images" >
                   <label>Image.
-                        <input type="text" name="images">
+                        <input type="text" name="images" required>
                   </label><br><br>
                   <input type="submit" value="Add-image">
             </form>
@@ -104,7 +104,5 @@
             </form>
             
       </section> </center>
-</main>
-</body>
-</html>
 
+      <%- include('../partials/footer') %>

@@ -1,23 +1,5 @@
-
-/* body{
-  background-image: url(https://i.imgur.com/gyYJB84.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-} */
 body{
   background-color: lightgray;
-}
-
-/* 
-#search-row form {
-  padding-top: 20px;
-} */
-
-nav > a {
-  margin: 20px;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
 }
 
 .login {
@@ -34,7 +16,13 @@ nav > a {
 .login img {
   height: 30px;
 }
-
+.index-image{
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 85%;
+  opacity: 0.8;
+}
 .review-user {
   display: flex;
   justify-content: center;
@@ -51,15 +39,22 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width: 100%;
+  border-radius: 10px;
+}
+
+nav > a {
+  margin: 30px;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
 .index-page{
   display: grid;
-  justify-content: center;
+  /* justify-content: center; */
   background-color: lightblue;
   border-radius: 10px;
-  width: 500px;
-  margin: 20px;
+  width: 500px; 
 }
 #budget-table{
   font-size: 20px; 
@@ -69,4 +64,12 @@ nav {
 .image-size{
   height: 500px;
   width: 800px;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* margin: 20px; */
+  background-color: blue;
 }

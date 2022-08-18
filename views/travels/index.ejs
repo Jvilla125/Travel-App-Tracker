@@ -1,25 +1,24 @@
 <%- include('../partials/header') %>
+
 <body>
-  <center><div class="index-page">
+  <img class="index-image" src="https://images.unsplash.com/photo-1533747732305-e29603106e0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1373&q=80">
+  <div class="index-page">
     <% if (user) { %>
-        <h1>Welcome to the home page</h1>
-        <h2>Please click one of the following links to view your trip </h2>
-        <% travels.forEach(t => { %>
-            <center>
-              <%= t.continent %> 
-              <a href="/travels/<%= t._id %>">View Trip</a><br><br>
-              <form method="POST" action="/travels/<%=t.id%>?_method=DELETE">
-                <input type="submit" value="Delete-Trip"><br><br>
-              </form>
-            </center>
-        <% }) %>
-          <center><a href="/travels/new">Add a trip</a></center></p>
-          <% } else { %>
-            <h1>Welcome to the home page</h1>
-            <h2>Please login to continue</h2>
-            <p><a href="/auth/google" class="login" id="index-login" >Click here to log in</a></p> 
-          <% } %>
-      </div></center>
-</main>
-</body>
-</html>
+      <h1>Welcome to the home page</h1>
+      <h2>Please click one of the following links to view your trip </h2>
+    <% travels.forEach(t => { %>      
+      <%= t.continent %> 
+        <a href="/travels/<%= t._id %>">View Trip</a><br><br>
+        <form method="POST" action="/travels/<%=t.id%>?_method=DELETE">
+          <input type="submit" value="Delete-Trip"><br><br>
+        </form>
+    <% }) %>
+        <a href="/travels/new">Add a trip</a></p>
+    <% } else { %>
+      <h1>Welcome to the home page</h1>
+      <h2>Please login to continue</h2>
+      <p><a href="/auth/google" class="login" id="index-login" >Click here to log in</a></p> 
+    <% } %>
+  </div>
+
+<%- include('../partials/footer') %>
