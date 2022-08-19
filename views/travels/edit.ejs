@@ -3,12 +3,12 @@
     <body>
 
         <center>
-            <h1>Welcome to the edit page</h1>
+            <h1>Please Edit Any Section</h1>
         </center>
 
-        <form id="update-trip" action="/travels/<%= travel.id %>?_method=PUT" method="POST">
+        <center><form id="update-trip" action="/travels/<%= travel.id %>?_method=PUT" method="POST">
             <label>Continent:</label>
-            <div>Your original answer: <%= travel.continent %>
+        
             </div>
             <select name="continent">
                 <option value="Africa">Africa</option>
@@ -21,32 +21,25 @@
             </select><br><br>
 
             <label>Country: </label>
-            <div>Your original answer: </div>
             <input type="text" name="country" value="<%= travel.country %>"><br><br>
 
             <label>City: </label>
-            <div>Your original answer: </div>
             <input type="text" name="city" value="<%= travel.city %>"><br><br>
 
             <label>Description: </label>
-            <div>Your original description:</div>
             <input type="text" name="description" value="<%= travel.description %>"><br><br>
 
             <label>Date Arrived:</label>
-            <div>Your original date: <%= travel.dateArrived %>
-            </div>
             <input type="date" name="dateArrived" value="<%= travel.dateArrived %>" required>
             </label><br><br>
 
             <label>Date Departed:</label>
-            <div>Your original departed date: <%= travel.dateDeparted %>
-            </div>
             <input type="date" name="dateDeparted" value="<%= travel.dateDeparted %>" required>
             <br><br>
 
             <input type="submit" value="Update trip">
         </form>
-
+    </center>
     </main>
 </body>
 

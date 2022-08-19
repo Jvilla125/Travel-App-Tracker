@@ -3,15 +3,15 @@
     <body>
 
         <center>
-            <h1>Welcome to the edit page</h1>
-        </center>
+            <h1>Please Edit Any Section</h1>
+        
         <form id="update-budget-entry" method="POST" action="/budgets/<%= budget._id %>?_method=PUT">
-            <label>Type of Activity: <input type="text" name="activity"></label><br><br>
+            <label>Type of Activity: <input type="text" name="activity" value="<%= budget.activity %> "></label><br><br>
             <label>Date of Purchase: <input type="date" name="activityDate" required></label><br><br>
-            <label>Cost: <input type="number" name="cost"></label><br><br>
+            <label>Cost: <input type="number" name="cost" value="<%= budget.cost %>"></label><br><br>
             <input type="submit" value="Submit">
         </form>
-
+    </center>
     </main>
 </body>
 

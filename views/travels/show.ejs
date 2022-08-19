@@ -1,64 +1,28 @@
 <%- include('../partials/header') %>
 
-      <body>
+      <body class="show-page">
             <center><h1>Welcome to your Personal Trip</h1></center>
                   <center><h3>Duration of your trip: <br><%= travel.dateArrived %> - <%= travel.dateDeparted %> </h3>
                         <section id="trip-info">
-                        <h3><u>Trip Information</u></h3>
+                        <h2><u>Trip Information</u></h2>
                         <div><b>Continent:</b> <%= travel.continent %></div><br>
-                        <div>Country: <%= travel.country %></div> <br>
-                        <div>City: <%= travel.city %></div> <br>
-                        <div> Description: <%= travel.description %></div><br>
-                        <a href="/travels/<%=travel.id  %>/edit">edit</a>
-                        <section id="budget tracker">
-                              <table id="budget-table">
-                                    <h2><u>Track how much you spent</u></h2>
-                                    <thead>
-                                          <tr>
-                                                <th>Activity</th>
-                                                <th>Date: </th>
-                                                <th>Cost: </th>
-                                          </tr>
-                                    </thead>
-                                    <tbody>
-                                          <% if (travel.budgets.length) { %>
-                                                <% travel.budgets.forEach(function(budget) {%>
-                                                      <tr>
-                                                            <td>
-                                                                  <%= budget.activity %>
-                                                            </td>
-                                                            <td>
-                                                                  <%= budget.activityDate %>
-                                                            </td>
-                                                            <td>
-                                                                  <%= budget.cost %>
-                                                            </td>
-                                                            <td>
-                                                                  <form method="POST"
-                                                                        action="/travels/<%=travel.id %>/budgets/<%=budget.id%>?_method=DELETE">
-                                                                        <input type="submit" value="Delete-Budget">
-                                                                  </form>
-                                                                  <a href="/budgets/<%= budget.id %>/edit">edit</a>
-                                                            </td>
-                                                      </tr>
-                                                      <% }) %>
-                                                            <% } else { %>
-                                                                  <h3>No Entries yet</h3>
-                                                                  <% } %>
-                                    </tbody>
-                              </table>
-                        </section>
+                        <div><b>Country:</b> <%= travel.country %></div> <br>
+                        <div><b>City:</b> <%= travel.city %></div> <br>
+                        <div> <b>Description:</b> <%= travel.description %></div><br>
+                        <a href="/travels/<%=travel.id  %>/edit" ><button class="delete"> Edit</button></a>
+                        
                   </section>
             </center>
             <center>
-                  <!-- <section id="budget tracker">
+                  <section id="table-tracker">
                         <table id="budget-table">
                               <h2><u>Track how much you spent</u></h2>
                               <thead>
                                     <tr>
                                           <th>Activity</th>
-                                          <th>Date: </th>
-                                          <th>Cost: </th>
+                                          <th>Date </th>
+                                          <th>Cost </th>
+                                          
                                     </tr>
                               </thead>
                               <tbody>
@@ -72,92 +36,74 @@
                                                             <%= budget.activityDate %>
                                                       </td>
                                                       <td>
-                                                            <%= budget.cost %>
+                                                            $<%= budget.cost %>
                                                       </td>
-                                                      <td>
-                                                            <form method="POST"
-                                                                  action="/travels/<%=travel.id %>/budgets/<%=budget.id%>?_method=DELETE">
-                                                                  <input type="submit" value="Delete-Budget">
-                                                            </form>
-                                                            <a href="/budgets/<%= budget.id %>/edit">edit</a>
-                                                      </td>
+                                                      <td id="table-button"><form method="POST"
+                                                      action="/travels/<%=travel.id %>/budgets/<%=budget.id%>?_method=DELETE">
+                                                <input type="submit" value="Delete">
+                                                </form><br>
+                                          <a href="/budgets/<%= budget.id %>/edit"><button class="budget-buttons" class="delete">Edit</button></a></td>
                                                 </tr>
+                                 
                                                 <% }) %>
                                                       <% } else { %>
                                                             <h3>No Entries yet</h3>
                                                             <% } %>
                               </tbody>
                         </table>
-                  </section> -->
+                  
+                  </section>
+            </center>
+            <center>
 
-                  <section>
+                  <section id="budget-entry">
                         <form id="add-budget-entry" method="POST" action="/travels/<%= travel._id %>/budgets">
-                              <label>Type of Activity: <input type="text" name="activity"></label><br><br>
-                              <label>Date of Purchase: <input type="date" name="activityDate" required></label><br><br>
+                              <br><label>Type of Activity: <input type="text" name="activity"></label><br><br>
+                              <label>Date of Purchase: <input type="date"  name="activityDate" required></label><br><br>
                               <label>Cost: <input type="number" name="cost"></label><br><br>
                               <input type="submit" value="Submit">
                         </form>
                   </section>
             </center>
-            <h2>Journals:</h2>
-            <% if (travel.journals.length) { %>
-                  <% travel.journals.forEach(function(journal){%>
-                        <div>Item no. <%= journal.itemNo %>
-                        </div>
-                        <div> Text <%= journal.text %>
-                        </div>
-                        <form method="POST"
-                              action="/travels/<%=travel.id %>/journals/<%=journal.id%>?_method=DELETE">
-                              <input type="submit" value="Delete-Journal">
-                        </form>
-                        <a href="/journals/<%= journal.id %>/edit">edit</a>
-                        <% }) %>
-                              <% } else { %>
-                                    <h3>No Entries yet</h3>
-                                    <% } %>
-
-                                          <section>
-                                                <h2>Add a journal entry</h2>
-                                                <form id="add-journal-entry" method="POST"
-                                                      action="/travels/<%= travel._id %>/journals">
-                                                      <label>Item No.
-                                                            <input type="text" name="itemNo">
-                                                      </label><br><br>
-
-                                                      <label> Text
-                                                            <input type="text" name="text">
-                                                      </label><br><br>
-
-                                                      <input type="submit" value="Add-journal">
-                                                </form>
-                                          </section>
-      </center>
+         
       <center>
-            <section id="image-info">
-                  <h2>Images:</h2>
+            
+           
+            <center><h1><u>Photo Library</u></h1></center>
+            <% if (travel.images.length) { %>
                   <form id="add-image" method="POST" action="/travels/<%= travel._id %>/images">
-                        <label>Image.
-                              <input type="text" name="images" required>
-                        </label><br><br>
-
-                        <input type="submit" value="Add-image">
+                        <label><h3><u>Submit Link Below</h3></u><input type="text" name="images" placeholder="Paste your link here"required></label><br>
+                        <input type="submit" id="image-submit" value="Submit Image">
                   </form>
-            </section>
-
+            <% } %>
             <section id="image-display">
                   <% if (travel.images.length) { %>
+                        
+            
                         <% travel.images.forEach(function(img) {%>
                         <div class="image-container">
                               <img src="<%= img.images %> " class="image-size">
                               <form method="POST"
                                     action="/travels/<%=travel.id %>/images/<%=img.id%>?_method=DELETE">
-                                    <input type="submit" value="Delete-image" class="delete">
+                              <input type="submit" value="Delete-image" class="delete">
                               </form>
                         </div>
-                              <% }) %>
-                                    <% } else { %>
-                                          <h3>No Images uploaded yet</h3>
-                                          <% } %>
+            <% }) %>
+                  <% } else { %>
+                        <!-- <h3>No Images uploaded yet</h3> -->
+                        <section id="image-info">
+                              <h2><u>Upload Your Image Link Below</u></h2>
+                              <h3>To upload an Image, please see the following instructions:</h3>
+                                    <p>1. Please use this <a href="https://imgur.com/">Link</a> to go to the imgur website.</p>
+                                    <p>2. Please click on 'New Post' on the top left corner<br><br><img src="https://i.imgur.com/t2SnKOE.png"></p>
+                                    <p>3. After you upload your image. Right click on the image you just uploaded and click on "<i>Copy Image Addresss</i>". <br><br><img src="https://i.imgur.com/4i8MdbZ.png"></p>
+                                    <p>4. After you copied the image address, please paste it below and click submit!</p>
+                              <form id="add-image" method="POST" action="/travels/<%= travel._id %>/images">
+                                    <label><h3>Submit Below</h3> <input type="text" name="images" required></label><br><br>
+                                    <input type="submit" id="image-submit" value="Submit Image">
+                              </form>
+                        </section>
+                        <% } %>
             </section>
 
 

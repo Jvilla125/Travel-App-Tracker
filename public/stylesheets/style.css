@@ -1,4 +1,7 @@
 
+body{
+  max-width: 100%;
+}
 .login {
   display: flex;
   justify-content: center;
@@ -6,7 +9,19 @@
   height: 34px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
-
+#index-login-button{
+  width: 120px;
+  height: 40px;
+  margin: 10px;
+  background-image: linear-gradient(to right top, #6886b3, #4e7dc8, #3671db, #2c63ea, #3d4ff4);
+  box-shadow: 2px 2px 5px rgba(48, 70, 209, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  border-radius: 10px;
+}
+#index-login-button:hover {
+  background: rgb(141, 52, 141);
+  transition: 0.5s;
+}
 .login-button {
   width: 150px;
   height: 40px;
@@ -16,7 +31,14 @@
   font-size: 20px;
   border-radius: 10px;
 }
-
+#image-submit{
+  width: 100px;
+  height: 30px;
+  margin: 10px;
+  background-image: linear-gradient(to right top, #6886b3, #4e7dc8, #3671db, #2c63ea, #3d4ff4);
+  box-shadow: 2px 2px 5px rgba(48, 70, 209, 0.5), inset 0px 0px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
 .login-button:hover {
   background: rgb(141, 52, 141);
   transition: 0.5s;
@@ -59,7 +81,8 @@
 
 nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: #cbd5d7;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,18 +96,22 @@ nav {
 
 #index-view {
   display: grid;
-  /* justify-content: center; */
-  background-color: lightcyan;
+  background-color: rgba(216, 239, 239, 0.441);
   border-radius: 10px;
   width: 500px;
   margin: 100px;
-  border: 3px solid grey;
-
+  border: 3px solid black;
 }
-
+.div-view-trip {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .image-size {
   height: 400px;
   width: 550px;
+  border-radius: 10px;
 }
 
 #image-display{
@@ -94,25 +121,12 @@ nav {
   justify-content: space-evenly;
   padding: 5px;
 }
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background: lightblue;
-}
 
-.div-view-trip {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 #h2-welcome{
   margin: -1px;
 }
 .view-trip {
-  background-color: white;
+  background-color: rgba(216, 239, 239, 0.441);
   border: solid 3px rgb(52, 47, 47);
   border-radius: 30px;
   margin: 5px;
@@ -125,12 +139,13 @@ footer {
 }
 
 .welcome {
-  background-color: white;
+ 
   width: 500px;
   border-radius: 20px;
   height: 150px;
   border: solid 3px black;
   margin: 10px;
+  background-color: rgba(216, 239, 239, 0.441);
 }
 
 .view-button {
@@ -150,18 +165,51 @@ footer {
 }
 
 #trip-info{
-  background-color: blue;
+  
   border-radius: 50px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
+.show-page{
+  background-color: rgba(168, 211, 217, 0.275);
+}
 #image-info{
-  background-color: lightblue;
+  border: 3px solid black;
+  border-radius: 30px;
+  width: 1000px;
+  background-image: radial-gradient(circle, #356dbf, #0085ca, #009bce, #36afce, #63c2cd);
 }
 #budget-table {
   font-size: 20px;
   padding: 10px;
   text-align: center;
-  background-color: cyan
+}
+
+#table-tracker{
+  width: 350px;
+  
+}
+.budget-buttons{
+  display: block;
+}
+
+table{
+  border-collapse: collapse;
+
+}
+thead{
+  background: rgb(131, 127, 127);
+ 
+}
+th, td{
+  border: 1px solid black;
+  padding: 15px;
+  background-color: lightgr;
+}
+
+#table-button{
+  border: none;
+  display: inline-block;
+  margin-right: 5px
 }
