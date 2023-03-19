@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { connectDB } = require("../config/database");
+const { connectDB } = require("../config/database"); 
 /**
  * Module dependencies.
  */
@@ -88,8 +88,6 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
-
-var server = http.createServer(app);
 
 connectDB().then(() => {
   server.listen(port);
