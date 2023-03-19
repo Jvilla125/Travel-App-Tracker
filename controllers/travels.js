@@ -21,7 +21,6 @@ function index(req, res) {
             travels: travelDocs
         });
     });
-
 }
 
 function show(req, res) {
