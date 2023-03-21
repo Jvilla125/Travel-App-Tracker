@@ -41,7 +41,7 @@ I used `Whimisical` to help plan out the models and stucture of the application.
 * Trello 
 
 # Getting Started
-_**[Please click this link!](https://travelapptracker.herokuapp.com/travels)**_
+_**[Please click this link!](https://travel-app-tracker.cyclic.app/)**_
 
 Please Login in and click on the link `Add a trip` to get started.
 # Next Steps
